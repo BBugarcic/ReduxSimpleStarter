@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 
-class VideoItem extends Component {
-  render() {
-    
-  }
+
+const VideoItem = (props) => {
+  return(
+    <li>Video</li>
+  )
 }
+// class VideoItem extends Component {
+//   render() {
+//
+//   }
+// }
 
 export default VideoItem;
