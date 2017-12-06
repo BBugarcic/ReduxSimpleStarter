@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import SearchBar from './components/search_bar';
 import YTSearch from 'youtube-api-search';
+import SearchBar from './components/search_bar';
 import VideoList from './components/video_list';
+import VideoPlayer from './components/video_player';
+
 const API_KEY = "AIzaSyArNlBKFTphB5ShJRNHwG6b7aLqimnO4Fk";
 
 class App extends Component {
@@ -11,7 +13,7 @@ class App extends Component {
     super(props);
 
     this.state = { videos: [] };
-    YTSearch({key: API_KEY, term: 'skidiving'}, (videos) => {
+    YTSearch({key: API_KEY, term: 'best skidiving 2017'}, (videos) => {
       this.setState({ videos });
     });
   }
@@ -20,6 +22,7 @@ class App extends Component {
     return(
       <div>
         <SearchBar />
+        <VideoPlayer video={this.state.videos[0]} />
         <VideoList videos={this.state.videos} />
       </div>
     );

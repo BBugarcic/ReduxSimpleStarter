@@ -1,15 +1,26 @@
 import React, { Component } from 'react';
 
 
-const VideoItem = (props) => {
+const VideoItem = ({video}) => {
+  // passing {video} as parameter to this component is like
+  // passind props and declaring cont in new line
+  // const video = props.video
+  const imageUrl = video.snippet.thumbnails.default.url;
+
   return(
-    <li>Video</li>
+    <li className='list-group-item'>
+      <div className='video-list media'>
+        <div className='media-left'>
+          <img className='media-object' src={imageUrl} />
+        </div>
+        <div className='media-body'>
+          <div className='media-heading'>
+            {video.snippet.title}
+          </div>
+        </div>
+      </div>
+    </li>
   )
 }
-// class VideoItem extends Component {
-//   render() {
-//
-//   }
-// }
 
 export default VideoItem;
