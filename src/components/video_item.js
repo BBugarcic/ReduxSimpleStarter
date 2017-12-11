@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 
 
-const VideoItem = ({video}) => {
+const VideoItem = ({video, onVideoSelect}) => {
   // passing {video} as parameter to this component is like
   // passind props and declaring cont in new line
   // const video = props.video
   const imageUrl = video.snippet.thumbnails.default.url;
 
   return(
-    <li className='list-group-item'>
+    <li onClick={() => onVideoSelect(video)} className='list-group-item'>
       <div className='video-list media'>
         <div className='media-left'>
           <img className='media-object' src={imageUrl} />
